@@ -31,11 +31,11 @@
 
   <div id="story-box">
     <h1>The Big Project</h1>
-    <p id="story">You have a big school project due tomorrow. What do you do?</p>
+    <p id="story">You have a big school project due tomorrow. This project is worth 40% of your final grade. What do you do?</p>
 
     <div id="choices">
       <button onclick="chooseStartWork()">Start working now</button>
-      <button onclick="choosePlayGames()">Play games instead</button>
+      <button onclick="choosePlayGames()">Play video games instead</button>
     </div>
   </div>
 
@@ -44,7 +44,7 @@
     const choices = document.getElementById("choices");
 
     function chooseStartWork() {
-      story.innerHTML = "You start your project early. Do you ask for help or work alone?";
+      story.innerHTML = "You start your project early, but realize it is going to be much harder to do by yourself. Do you ask for help or work alone?";
       choices.innerHTML = `
         <button onclick="endingHelp()">Ask for help</button>
         <button onclick="endingAlone()">Work alone</button>
@@ -52,30 +52,30 @@
     }
 
     function choosePlayGames() {
-      story.innerHTML = "You play games for a while. Do you stop early or keep playing all night?";
+      story.innerHTML = "You play video games for a while. Do you stop early or keep playing all night?";
       choices.innerHTML = `
         <button onclick="endingStop()">Stop early and work</button>
-        <button onclick="endingFail()">Keep playing</button>
+        <button onclick="endingFail()">Keep playing video games all night</button>
       `;
     }
 
     function endingHelp() {
-      story.innerHTML = "You ask for help, finish early, and learn more. Lesson: teamwork and responsibility lead to success.";
+      story.innerHTML = "You ask for help, finish early, strenghten your friendship, and you are not as stressed from all the work. Lesson: teamwork and responsibility lead to greater success.";
       choices.innerHTML = `<button onclick="location.reload()">Restart</button>`;
     }
 
     function endingAlone() {
-      story.innerHTML = "You finish, but it is stressful. Lesson: working hard matters, but asking for help is okay.";
+      story.innerHTML = "You finish, but it was stressful and you get less sleep. Lesson: working hard matters, but asking for help can help you in the long run.";
       choices.innerHTML = `<button onclick="location.reload()">Restart</button>`;
     }
 
     function endingStop() {
-      story.innerHTML = "You stop playing and barely finish. Lesson: it is never too late to make a better choice.";
+      story.innerHTML = "You stop playing and barely finish. As a result, you practically get no sleep and your work is sloppy. Lesson: it is never too late to make a better choice, but you should not let distractions get in the way of your work because they may hinder you performance.";
       choices.innerHTML = `<button onclick="location.reload()">Restart</button>`;
     }
 
     function endingFail() {
-      story.innerHTML = "You keep playing and do poorly on the project. Lesson: procrastination has consequences.";
+      story.innerHTML = "You keep playing video games, never finished the project, and fail the class as a result. Lesson: procrastination has consequences.";
       choices.innerHTML = `<button onclick="location.reload()">Restart</button>`;
     }
   </script>
