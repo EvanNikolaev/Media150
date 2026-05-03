@@ -1,1 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Story</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      text-align: center;
+      padding: 40px;
+    }
 
+    #story-box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px gray;
+    }
+
+    button {
+      margin: 10px;
+      padding: 12px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="story-box">
+    <h1>The Big Project</h1>
+    <p id="story">You have a big school project due tomorrow. What do you do?</p>
+
+    <div id="choices">
+      <button onclick="chooseStartWork()">Start working now</button>
+      <button onclick="choosePlayGames()">Play games instead</button>
+    </div>
+  </div>
+
+  <script>
+    const story = document.getElementById("story");
+    const choices = document.getElementById("choices");
+
+    function chooseStartWork() {
+      story.innerHTML = "You start your project early. Do you ask for help or work alone?";
+      choices.innerHTML = `
+        <button onclick="endingHelp()">Ask for help</button>
+        <button onclick="endingAlone()">Work alone</button>
+      `;
+    }
+
+    function choosePlayGames() {
+      story.innerHTML = "You play games for a while. Do you stop early or keep playing all night?";
+      choices.innerHTML = `
+        <button onclick="endingStop()">Stop early and work</button>
+        <button onclick="endingFail()">Keep playing</button>
+      `;
+    }
+
+    function endingHelp() {
+      story.innerHTML = "You ask for help, finish early, and learn more. Lesson: teamwork and responsibility lead to success.";
+      choices.innerHTML = `<button onclick="location.reload()">Restart</button>`;
+    }
+
+    function endingAlone() {
+      story.innerHTML = "You finish, but it is stressful. Lesson: working hard matters, but asking for help is okay.";
+      choices.innerHTML = `<button onclick="location.reload()">Restart</button>`;
+    }
+
+    function endingStop() {
+      story.innerHTML = "You stop playing and barely finish. Lesson: it is never too late to make a better choice.";
+      choices.innerHTML = `<button onclick="location.reload()">Restart</button>`;
+    }
+
+    function endingFail() {
+      story.innerHTML = "You keep playing and do poorly on the project. Lesson: procrastination has consequences.";
+      choices.innerHTML = `<button onclick="location.reload()">Restart</button>`;
+    }
+  </script>
+
+</body>
+</html>
