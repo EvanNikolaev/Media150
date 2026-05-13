@@ -98,13 +98,11 @@
 
     <div id="choices" class="choice-container">
 
-      <!-- Choice 1 -->
       <div class="choice-card" onclick="chooseStartWork()">
         <img src="https://www.shutterstock.com/image-photo/college-student-doing-homework-home-600nw-201109133.jpg" alt="Student working">
         <button>Start working now</button>
       </div>
 
-      <!-- Choice 2 -->
       <div class="choice-card" onclick="choosePlayGames()">
         <img src="https://media.istockphoto.com/id/1448737609/photo/over-the-shoulder-angle-of-a-young-female-gamer-winning-in-a-video-game-on-personal-computer.jpg?s=612x612&w=0&k=20&c=NTYXNViGBaFyfFiwUUpTWMQLMNavfsT_2jWI4yEsOQw=" alt="Playing video games">
         <button>Play video games instead</button>
@@ -122,12 +120,12 @@
         "You start your project early, but realize it is going to be much harder to do by yourself. Do you ask for help or work alone?";
 
       choices.innerHTML = `
-        <div class="choice-card" onclick="endingHelp()">
+        <div class="choice-card" onclick="chooseAskHelp()">
           <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Students helping">
           <button>Ask for help</button>
         </div>
 
-        <div class="choice-card" onclick="endingAlone()">
+        <div class="choice-card" onclick="chooseWorkAlone()">
           <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop" alt="Working alone">
           <button>Work alone</button>
         </div>
@@ -139,48 +137,152 @@
         "You play video games for a while. Do you stop early or keep playing all night?";
 
       choices.innerHTML = `
-        <div class="choice-card" onclick="endingStop()">
+        <div class="choice-card" onclick="chooseStopEarly()">
           <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Back to studying">
           <button>Stop early and work</button>
         </div>
 
-        <div class="choice-card" onclick="endingFail()">
+        <div class="choice-card" onclick="chooseKeepPlaying()">
           <img src="https://img.freepik.com/premium-photo/tired-gamer-sits-home-computer-sleeps-dream-interpretation_245974-7993.jpg" alt="Gaming all night">
           <button>Keep playing all night</button>
         </div>
       `;
     }
 
-    function endingHelp() {
+    function chooseAskHelp() {
       story.innerHTML =
-        "You ask for help, finish early, strengthen your friendship, and feel less stressed. Lesson: teamwork and responsibility lead to greater success.";
+        "You ask a friend for help. They agree, but they also suggest splitting the work. Do you split the work fairly or let your friend do most of it?";
+
+      choices.innerHTML = `
+        <div class="choice-card" onclick="endingTeamwork()">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop" alt="Teamwork">
+          <button>Split the work fairly</button>
+        </div>
+
+        <div class="choice-card" onclick="endingLazyPartner()">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Group project">
+          <button>Let them do most of it</button>
+        </div>
+      `;
+    }
+
+    function chooseWorkAlone() {
+      story.innerHTML =
+        "You decide to work alone. After an hour, you realize you are running out of time. Do you make a plan or rush through it?";
+
+      choices.innerHTML = `
+        <div class="choice-card" onclick="endingPlanAlone()">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop" alt="Planning work">
+          <button>Make a plan</button>
+        </div>
+
+        <div class="choice-card" onclick="endingRushAlone()">
+          <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1200&auto=format&fit=crop" alt="Rushing work">
+          <button>Rush through it</button>
+        </div>
+      `;
+    }
+
+    function chooseStopEarly() {
+      story.innerHTML =
+        "You stop gaming and start working, but it is already late. Do you focus on the most important parts or try to finish everything perfectly?";
+
+      choices.innerHTML = `
+        <div class="choice-card" onclick="endingPrioritize()">
+          <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1200&auto=format&fit=crop" alt="To do list">
+          <button>Focus on important parts</button>
+        </div>
+
+        <div class="choice-card" onclick="endingPerfectionist()">
+          <img src="https://images.unsplash.com/photo-1517842645767-c639042777db?q=80&w=1200&auto=format&fit=crop" alt="Writing notes">
+          <button>Try to make it perfect</button>
+        </div>
+      `;
+    }
+
+    function chooseKeepPlaying() {
+      story.innerHTML =
+        "You keep playing until midnight. Suddenly, you remember the project. Do you pull an all-nighter or give up?";
+
+      choices.innerHTML = `
+        <div class="choice-card" onclick="endingAllNighter()">
+          <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop" alt="Working late">
+          <button>Pull an all-nighter</button>
+        </div>
+
+        <div class="choice-card" onclick="endingGiveUp()">
+          <img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?q=80&w=1200&auto=format&fit=crop" alt="Clock late at night">
+          <button>Give up</button>
+        </div>
+      `;
+    }
+
+    function endingTeamwork() {
+      story.innerHTML =
+        "You and your friend split the work fairly, finish early, and both understand the project better. Ending: Teamwork Success. Lesson: responsibility and teamwork can make hard tasks easier.";
 
       choices.innerHTML = `
         <button class="restart-btn" onclick="location.reload()">Restart Story</button>
       `;
     }
 
-    function endingAlone() {
+    function endingLazyPartner() {
       story.innerHTML =
-        "You finish, but it was stressful and you get less sleep. Lesson: working hard matters, but asking for help can help you in the long run.";
+        "Your friend does most of the project, but the teacher asks you questions about it and you cannot explain your part. Ending: Unprepared. Lesson: help is useful, but you still need to do your own work.";
 
       choices.innerHTML = `
         <button class="restart-btn" onclick="location.reload()">Restart Story</button>
       `;
     }
 
-    function endingStop() {
+    function endingPlanAlone() {
       story.innerHTML =
-        "You stop playing and barely finish. You get almost no sleep and your work is sloppy. Lesson: it is never too late to make a better choice, but distractions can hurt your performance.";
+        "You make a plan, take short breaks, and finish the project. It is not perfect, but it is organized and complete. Ending: Independent Success. Lesson: planning can turn stress into progress.";
 
       choices.innerHTML = `
         <button class="restart-btn" onclick="location.reload()">Restart Story</button>
       `;
     }
 
-    function endingFail() {
+    function endingRushAlone() {
       story.innerHTML =
-        "You keep playing video games, never finish the project, and fail the class. Lesson: procrastination has consequences.";
+        "You rush through the project and finish, but you miss important details. Ending: Sloppy Finish. Lesson: working hard is important, but rushing without a plan can hurt your results.";
+
+      choices.innerHTML = `
+        <button class="restart-btn" onclick="location.reload()">Restart Story</button>
+      `;
+    }
+
+    function endingPrioritize() {
+      story.innerHTML =
+        "You focus on the biggest requirements first and turn in a decent project. Ending: Smart Recovery. Lesson: even after procrastinating, smart priorities can help you recover.";
+
+      choices.innerHTML = `
+        <button class="restart-btn" onclick="location.reload()">Restart Story</button>
+      `;
+    }
+
+    function endingPerfectionist() {
+      story.innerHTML =
+        "You spend too much time making the first section perfect and do not finish the rest. Ending: Unfinished Perfection. Lesson: sometimes done is better than perfect.";
+
+      choices.innerHTML = `
+        <button class="restart-btn" onclick="location.reload()">Restart Story</button>
+      `;
+    }
+
+    function endingAllNighter() {
+      story.innerHTML =
+        "You stay up all night and finish, but you are exhausted during the presentation. Ending: Tired but Finished. Lesson: last-minute effort can work, but it comes with a cost.";
+
+      choices.innerHTML = `
+        <button class="restart-btn" onclick="location.reload()">Restart Story</button>
+      `;
+    }
+
+    function endingGiveUp() {
+      story.innerHTML =
+        "You give up and do not turn in the project. Your grade drops badly, and you regret not starting sooner. Ending: Failed Project. Lesson: procrastination has consequences.";
 
       choices.innerHTML = `
         <button class="restart-btn" onclick="location.reload()">Restart Story</button>
@@ -190,5 +292,4 @@
 
 </body>
 </html>
-
 
